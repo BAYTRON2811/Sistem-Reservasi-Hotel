@@ -1,0 +1,111 @@
+body {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.hero-section {
+    width: 100%;
+    height: 450px;
+    background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.45);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+}
+
+.hero-overlay h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.navbar-custom {
+    background: #1e293b;
+}
+
+.navbar-custom .navbar-brand, .navbar-custom .nav-link {
+    color: white;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background: #2563eb;
+    border: none;
+}
+
+.btn-success {
+    border: none;
+}
+
+.btn-warning {
+    border: none;
+}
+
+.btn-danger {
+    border: none;
+}
+
+.table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.stat-card h3 {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #2563eb;
+}
+
+/* Room Image */
+.room-img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
