@@ -27,6 +27,15 @@
                 My Booking
             </a>
 
+            @if(auth()->user()->role == 'admin')
+
+            <a href="{{ route('admin.dashboard') }}"
+                class="btn btn-warning me-2">
+                Dashboard Admin
+            </a>
+
+            @endif
+
             <form action="{{ route('logout') }}"
                 method="POST">
 

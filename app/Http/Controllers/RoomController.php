@@ -51,20 +51,50 @@ class RoomController extends Controller
             'status' => true
         ]);
 
-        return redirect()
-            ->route('admin.dashboard');
+        return redirect('/admin/rooms');
     }
     public function update(Request $request, Room $room)
     {
-        $room->update([
+
+        $data = [
             'room_number' => $request->room_number,
             'room_type' => $request->room_type,
             'price' => $request->price,
             'description' => $request->description,
-        ]);
+        ];
 
-        return redirect()->route('rooms.index');
+        // Jika ada foto baru
+        if ($request->hasFile('image'))
+        {
+            // Hapus foto lama
+            if ($room->image)
+            {
+                Storage::disk('public')->delete($room->image);
+            }
+
+            // Simpan foto baru
+            $data['image'] = $request->file('image')
+            ->store('rooms', 'public');
+        }
+
+        elseif ($request->has('remove_image'))
+        {
+            if ($room->image)
+                {
+                    Storage::disk('public')->delete($room->image);
+                }
+            $data['image'] = null;
+        }
+
+        $room->update($data);
+
+        return redirect('/admin/rooms');
     }
+    public function edit(Room $room)
+    {
+        return view('admin.rooms.edit', compact('room'));
+    }
+
     public function destroy(Room $room)
     {
         if ($room->image)

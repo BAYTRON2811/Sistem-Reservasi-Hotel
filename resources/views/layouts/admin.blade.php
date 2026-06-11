@@ -19,14 +19,30 @@
         <hr>
 
         <a href="{{ route('admin.dashboard') }}"
-           class="text-white d-block mb-3 text-decoration-none">
+           class="sidebar-link">
            Dashboard
         </a>
 
         <a href="/admin/rooms"
-           class="text-white d-block mb-3 text-decoration-none">
+           class="sidebar-link">
            Kelola Kamar
         </a>
+
+        <a href="{{ route('rooms.index') }}"
+            class="sidebar-link">
+            Lihat Web
+        </a>
+
+        <form action="{{ route('logout') }}"
+            method="POST">
+
+            @csrf
+
+            <button class="btn btn-danger w-100 mt-4">
+                Logout
+            </button>
+
+        </form>
 
     </div>
 
