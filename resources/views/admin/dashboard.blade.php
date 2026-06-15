@@ -7,24 +7,38 @@
     <h2>Dashboard Admin</h2>
     <div class="row mb-4">
 
-        <div class="col-md-4">
-            <div class="stat-card">
-                <h5>Total Booking</h5>
-                <h3>{{ $totalBooking }}</h3>
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h6>Total Kamar</h6>
+                <h2>{{ $totalRooms }}</h2>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="stat-card">
-                <h5>Booking Confirmed</h5>
-                <h3>{{ $confirmedBooking }}</h3>
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h6>Kamar Terisi</h6>
+                <h2>{{ $occupiedRooms }}</h2>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h6>Kamar Kosong</h6>
+                <h2>{{ $availableRooms }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3">
             <div class="stat-card">
                 <h5>Pendapatan</h5>
                 <h3>Rp {{ number_format($revenue) }}</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <h6>Pendapatan Hari Ini</h6>
+                <h4>Rp {{ number_format($todayRevenue) }}</h4>
             </div>
         </div>
 

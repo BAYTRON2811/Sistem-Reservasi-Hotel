@@ -2,30 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\Booking;
 use Carbon\Carbon;
+
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
         $bookings = Booking::with(['user','room'])
+            ->where('status', '!=', 'completed')
             ->latest()
             ->get();
 
-        $totalBooking = Booking::count();
+        $totalRooms = Room::count();
 
-        $confirmedBooking = Booking::where(
-            'status',
-            'confirmed'
-        )->count();
+        $occupiedRooms = Booking::where('status','occupied')
+            ->count();
 
-        $revenue = Booking::where(
-            'status',
-            'confirmed'
-        )->sum('total_price');
+        $availableRooms = $totalRooms - $occupiedRooms;
 
-        return view('admin.dashboard', compact('bookings','totalBooking','confirmedBooking','revenue'));
+        $revenue = Booking::whereIn('status', [
+            'occupied',
+            'completed'
+        ])->sum('total_price');
+
+        $todayRevenue = Booking::whereDate(
+                'created_at',
+                Carbon::today()
+            )
+            ->whereIn('status', [
+            'occupied',
+            'completed'
+        ])
+        ->sum('total_price');
+
+        return view(
+            'admin.dashboard',
+            compact(
+                'bookings',
+                'totalRooms',
+                'occupiedRooms',
+                'availableRooms',
+                'revenue',
+                'todayRevenue'
+            )
+        );
     }
 
     public function confirm(Booking $booking)
@@ -59,7 +82,7 @@ class AdminController extends Controller
     public function occupiedRooms()
     {
         $bookings = Booking::with(['user', 'room'])
-            ->where('status', 'confirmed')
+            ->where('status', 'Occupied')
             ->get();
 
         return view(
