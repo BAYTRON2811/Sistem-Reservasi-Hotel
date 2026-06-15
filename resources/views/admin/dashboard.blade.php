@@ -60,31 +60,52 @@
             <td>
 
                 @if($booking->status == 'pending')
-
-                    <span class="badge bg-warning">
-                        Pending
-                    </span>
+                <span class="badge bg-warning">
+                    Pending
+                </span>
 
                 @elseif($booking->status == 'confirmed')
+                <span class="badge bg-info">
+                    Confirmed
+                </span>
 
-                    <span class="badge bg-success">
-                        Confirmed
-                    </span>
+                @elseif($booking->status == 'occupied')
+                <span class="badge bg-success">
+                Occupied
+                </span>
 
-                @elseif($booking->status == 'cancelled')
+                @elseif($booking->status == 'completed')
+                <span class="badge bg-secondary">
+                    Completed
+                </span>
 
-                    <span class="badge bg-danger">
-                        Cancelled
-                    </span>
-
+                @else
+                <span class="badge bg-danger">
+                    Cancelled
+                </span>
                 @endif
 
             </td>
 
             <td>
 
-                <form
-                    action="{{ route('admin.confirm',$booking->id) }}"
+                @if($booking->status == 'confirmed')
+
+                <form action="{{ route('admin.checkin',$booking->id) }}"
+                    method="POST"
+                    class="d-inline">
+
+                    @csrf
+
+                    <button class="btn btn-primary btn-sm">
+                    Check In
+                    </button>
+
+                </form>
+
+                @endif
+                
+                <form action="{{ route('admin.confirm',$booking->id) }}"
                     method="POST"
                     style="display:inline">
 

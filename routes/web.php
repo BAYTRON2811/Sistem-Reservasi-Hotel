@@ -28,8 +28,20 @@ Route::middleware(['auth','admin'])
             [AdminController::class,'confirm'])
             ->name('admin.confirm');
 
+        Route::post('/booking/{booking}/checkin',
+            [AdminController::class,'checkin'])
+            ->name('admin.checkin');
+
         Route::post('/booking/{booking}/cancel',
             [AdminController::class,'cancel'])
             ->name('admin.cancel');
+
+        Route::get('/occupied-rooms',
+            [AdminController::class, 'occupiedRooms'])
+            ->name('admin.occupied');
+
+        Route::post('/booking/{booking}/checkout',
+            [AdminController::class, 'checkout'])
+            ->name('admin.checkout');
             
 });

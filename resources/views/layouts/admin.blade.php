@@ -28,6 +28,11 @@
            Kelola Kamar
         </a>
 
+        <a href="{{ route('admin.occupied') }}"
+            class="sidebar-link">
+            Kamar Terisi
+        </a>
+
         <a href="{{ route('rooms.index') }}"
             class="sidebar-link">
             Lihat Web
