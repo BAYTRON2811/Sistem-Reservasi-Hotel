@@ -13,7 +13,7 @@
 </div>
 
 @endif
-<table class="table table-bordered">
+<table class="table">
 
     <thead>
         <tr>

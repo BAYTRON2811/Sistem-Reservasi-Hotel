@@ -3,6 +3,26 @@ body {
     font-family: 'Segoe UI', sans-serif;
 }
 
+.admin-layout{
+    padding-top: 0;
+}
+
+.page-enter{
+    animation: slideUpFade 1s ease;
+}
+
+@keyframes slideUpFade{
+    0%{
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero-section {
     width: 100%;
     height: 450px;
@@ -37,8 +57,48 @@ body {
     background: #1e293b;
 }
 
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    transition: transform 0.3s ease;
+}
+
+.navbar-hide{
+    transform: translateY(-100%);
+}
+
+body{
+    padding-top: 80px;
+}
+
 .navbar-custom .navbar-brand, .navbar-custom .nav-link {
     color: white;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+
+.btn-hero {
+    background:#ffffff;
+    color:#000000;
+    padding:10px;
+    border-radius:10px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    font-weight:400;
+}
+
+.btn-hero:hover {
+    background: #c6c6c6;
 }
 
 .card {
@@ -101,6 +161,7 @@ body {
     padding:25px;
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom:20px;
     transition:0.3s;
 }
 
@@ -158,4 +219,51 @@ body {
 .sidebar-link.active{
     background:#0d6efd;
     color:white;
+}
+
+.card{
+    border-radius:20px;
+}
+
+.card-img-top{
+    border-radius:20px 20px 0 0;
+}
+
+.form-control{
+    border-radius:12px;
+    padding:12px;
+}
+
+.btn-primary{
+    border-radius:12px;
+    font-weight:600;
+}
+
+.badge{
+    font-size:14px;
+    padding:8px 12px;
+}
+
+.auth-card{
+    max-width:500px;
+    margin:auto;
+}
+
+.card{
+    border-radius:20px;
+}
+
+.form-control{
+    border-radius:12px;
+    padding:12px;
+}
+
+.btn-primary{
+    border-radius:12px;
+    font-weight:600;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    transition:0.3s;
 }

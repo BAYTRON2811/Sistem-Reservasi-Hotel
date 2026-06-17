@@ -30,7 +30,7 @@
 
         <div class="col-md-3">
             <div class="stat-card">
-                <h5>Pendapatan</h5>
+                <h6>Pendapatan</h6>
                 <h3>Rp {{ number_format($revenue) }}</h3>
             </div>
         </div>

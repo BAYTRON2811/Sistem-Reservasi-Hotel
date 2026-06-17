@@ -16,8 +16,13 @@
             <label>Nomor Kamar</label>
             <input type="text"
                    name="room_number"
-                   value="{{ $room->room_number }}"
+                   value="{{ old('room_number', $room->room_number ?? '') }}"
                    class="form-control">
+            @error('room_number')
+                <div class="text-danger mt-1">
+                {{ $message }}
+                </div>
+            @enderror
         </div>
 
         <div class="mb-3">

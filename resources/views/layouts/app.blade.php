@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-custom">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-custom">
 
     <div class="container-fluid px-5">
 
@@ -30,7 +30,7 @@
             @if(auth()->user()->role == 'admin')
 
             <a href="{{ route('admin.dashboard') }}"
-                class="btn btn-warning me-2">
+                class="btn btn-light">
                 Dashboard Admin
             </a>
 
@@ -71,12 +71,41 @@
 
 <footer class="bg-dark text-white text-center py-4 mt-5">
 
-        <h5>Hotel Reservation</h5>
+    <h5>Hotel Reservation</h5>
 
-        <p class="mb-0">
-            © 2026 All Rights Reserved
-        </p>
+    <p class="mb-0">
+        © 2026 All Rights Reserved
+    </p>
 
-    </footer>
+</footer>
+
+<script>
+
+let lastScroll = 0;
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    const currentScroll = window.pageYOffset;
+
+    if(currentScroll <= 100)
+    {
+        navbar.classList.remove("navbar-hide");
+        return;
+    }
+
+    if(currentScroll > lastScroll)
+    {
+        navbar.classList.add("navbar-hide");
+    }
+    else
+    {
+        navbar.classList.remove("navbar-hide");
+    }
+
+    lastScroll = currentScroll;
+});
+
+</script>
 </body>
 </html>

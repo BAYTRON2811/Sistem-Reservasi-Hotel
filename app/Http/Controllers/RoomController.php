@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Room;
 
@@ -34,6 +35,13 @@ class RoomController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+        'room_number' => 'required|unique:rooms,room_number',
+        'room_type' => 'required',
+        'price' => 'required|numeric|min:0',
+        ], [
+            'room_number.unique' => 'Nomor kamar sudah digunakan.'
+        ]);
         $image = null;
 
         if ($request->hasFile('image'))
@@ -55,6 +63,17 @@ class RoomController extends Controller
     }
     public function update(Request $request, Room $room)
     {
+        $request->validate([
+        'room_number' => [
+            'required',
+            Rule::unique('rooms', 'room_number')
+                ->ignore($room->id)
+        ],
+        'room_type' => 'required',
+        'price' => 'required|numeric|min:0',
+        ], [
+            'room_number.unique' => 'Nomor kamar sudah digunakan.'
+        ]);
 
         $data = [
             'room_number' => $request->room_number,

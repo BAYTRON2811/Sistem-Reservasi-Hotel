@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body>
+<body class="admin-layout">
 
 <div class="d-flex">
 

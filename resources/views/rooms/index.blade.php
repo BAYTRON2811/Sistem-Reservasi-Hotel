@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="page-enter">
 
 <div class="hero-section">
 
@@ -12,7 +13,7 @@
             Pesan kamar hotel dengan mudah dan nyaman.
         </p>
 
-        <a href="#rooms" class="btn btn-light btn-lg">
+        <a href="#rooms" class="btn-hero">
         Lihat Kamar
         </a>
 
@@ -91,6 +92,8 @@
         @endforeach
 
     </div>
+</div>
+
 </div>
 
 

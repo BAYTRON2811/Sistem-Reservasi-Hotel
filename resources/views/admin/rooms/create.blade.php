@@ -13,9 +13,14 @@
 
               <label>Nomor Kamar</label>
               <input type="text"
-              name="room_number"
-              !!placeholder="Nomor Kamar"!!
-              class="form-control mb-2">
+                     name="room_number"
+                     !!placeholder="Nomor Kamar"!!
+                     class="form-control mb-2">
+              @error('room_number')
+              <div class="text-danger mt-1">
+                     {{ $message }}
+              </div>
+              @enderror
 
               <label>Tipe Kamar</label>
               <input type="text"
