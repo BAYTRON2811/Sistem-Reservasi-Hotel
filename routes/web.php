@@ -45,17 +45,3 @@ Route::middleware(['auth','admin'])
             ->name('admin.checkout');
             
 });
-Route::get('/make-admin', function () {
-
-    $user = \App\Models\User::where(
-        'email',
-        'joshuakristanto11@gmail.com'
-    )->first();
-
-    if ($user) {
-        $user->role = 'admin';
-        $user->save();
-    }
-
-    return 'Admin berhasil dibuat';
-});
