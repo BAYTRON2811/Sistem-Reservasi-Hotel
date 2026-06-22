@@ -18,7 +18,7 @@ Route::middleware(['auth','admin'])
     ->prefix('admin')
     ->group(function () {
 
-        Route::resource('rooms', RoomController::class);
+        Route::resource('rooms', RoomController::class)->names('admin.rooms');
 
         Route::get('/dashboard',
             [AdminController::class,'dashboard'])
