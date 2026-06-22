@@ -59,6 +59,3 @@ Route::get('/make-admin', function () {
 
     return 'Admin berhasil dibuat';
 });
-Route::get('/tes', function () {
-    return 'Route OK';
-});
