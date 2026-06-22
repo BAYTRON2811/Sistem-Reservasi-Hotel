@@ -5,7 +5,7 @@
 <div class="container mt-5">
 
        <h2>Tambah Kamar</h2>
-       <form action="{{ route('rooms.store') }}"
+       <form action="{{ route('admin.rooms.store') }}"
               method="POST"
               enctype="multipart/form-data">
 

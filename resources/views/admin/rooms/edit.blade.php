@@ -6,7 +6,7 @@
 
     <h2>Edit Kamar</h2>
 
-    <form action="{{ route('rooms.update', $room->id) }}"
+    <form action="{{ route('admin.rooms.update', $room->id) }}"
           method="POST" enctype="multipart/form-data">
 
         @csrf

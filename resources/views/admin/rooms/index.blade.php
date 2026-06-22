@@ -4,7 +4,7 @@
 
 <h2>Kelola Kamar</h2>
 
-<a href="{{ route('rooms.create') }}"
+<a href="{{ route('admin.rooms.create') }}"
    class="btn btn-success mb-3">
    Tambah Kamar
 </a>
@@ -42,12 +42,12 @@
 
         <td>
 
-            <a href="{{ route('rooms.edit',$room) }}"
+            <a href="{{ route('admin.rooms.edit',$room) }}"
                class="btn btn-warning">
                 Edit
             </a>
 
-            <form action="{{ route('rooms.destroy', $room->id) }}"
+            <form action="{{ route('admin.rooms.destroy', $room->id) }}"
                 method="POST"
                 style="display:inline"
                 onsubmit="return confirm('Yakin ingin menghapus kamar ini?');">
