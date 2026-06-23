@@ -3,6 +3,7 @@
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ForgotPasswordController;
 require __DIR__.'/auth.php';
 
 Route::get('/', [RoomController::class, 'index'])->name('rooms.index');
@@ -59,3 +60,12 @@ Route::get('/make-admin', function () {
 
     return 'Admin berhasil dibuat';
 });
+Route::get('/forgot-password', [
+    ForgotPasswordController::class,
+    'showForm'
+])->name('password.request');
+
+Route::post('/forgot-password', [
+    ForgotPasswordController::class,
+    'resetPassword'
+])->name('password.reset.custom');
