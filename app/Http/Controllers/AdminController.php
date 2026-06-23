@@ -82,7 +82,7 @@ class AdminController extends Controller
     public function occupiedRooms()
     {
         $bookings = Booking::with(['user', 'room'])
-            ->where('status', 'Occupied')
+            ->where('status', 'occupied')
             ->get();
 
         return view(
