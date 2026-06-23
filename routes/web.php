@@ -69,3 +69,16 @@ Route::post('/forgot-password', [
     ForgotPasswordController::class,
     'resetPassword'
 ])->name('password.reset.custom');
+
+Route::get('/check-users', function () {
+    return \App\Models\User::all();
+});
+
+Route::get('/check-admin', function () {
+    return \App\Models\User::select(
+        'id',
+        'name',
+        'email',
+        'role'
+    )->get();
+});
