@@ -38,6 +38,10 @@
             Lihat Web
         </a>
 
+        <a href="{{ route('admin.users') }}">
+            Kelola User
+        </a>
+
         <form action="{{ route('logout') }}"
             method="POST">
 

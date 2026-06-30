@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Booking;
 use Carbon\Carbon;
+use App\Models\User;
 
 
 class AdminController extends Controller
@@ -101,6 +102,35 @@ class AdminController extends Controller
             ->with(
             'success',
             'Check Out berhasil'
+        );
+    }
+
+    public function users()
+    {
+        $users = User::latest()->get();
+
+        return view('admin.users', compact('users'));
+    }
+
+    public function changeRole(User $user)
+    {
+        if ($user->id === auth()->id()) {
+            return back()->with(
+            'error',
+            'Tidak bisa mengubah role akun sendiri'
+            );
+        }
+
+        $user->role =
+            $user->role === 'admin'
+            ? 'user'
+            : 'admin';
+
+        $user->save();
+
+        return back()->with(
+            'success',
+            'Role berhasil diubah'
         );
     }
 }
