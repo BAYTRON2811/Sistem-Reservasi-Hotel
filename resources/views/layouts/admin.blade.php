@@ -38,7 +38,8 @@
             Lihat Web
         </a>
 
-        <a href="{{ route('admin.users') }}">
+        <a href="{{ route('admin.users') }}"
+            class="sidebar-link">
             Kelola User
         </a>
 
